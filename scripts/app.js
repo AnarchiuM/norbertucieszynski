@@ -1,5 +1,3 @@
-import {moment} from 'moment-with-locales';
-
 (function () {
   'use strict';
 
@@ -124,7 +122,7 @@ app.controller('inputCtrl', ['$scope','$timeout', function($scope, $timeout){
         text: $scope.messageForm.text,
         user_uid: $scope.current_user.uid,
         user_nickname: $scope.current_user.nickname,
-        created_at: moment().format('MMMM Do YYYY, h:mm:ss a')
+        created_at: Math.floor(Date.now()/1000)
       });
       // Wyczyść input
       $scope.messageForm.text = '';
