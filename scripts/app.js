@@ -1,3 +1,5 @@
+import {moment} from 'moment-with-locales';
+
 (function () {
   'use strict';
 
@@ -114,7 +116,6 @@ exitEvent(onExitEvent, function(e) {
 app.controller('inputCtrl', ['$scope','$timeout', function($scope, $timeout){
     
 
-    
   // Wysyłanie wiadomości
   $scope.sendMessage = function(){
     if( $scope.messageForm.$valid ){
@@ -123,7 +124,7 @@ app.controller('inputCtrl', ['$scope','$timeout', function($scope, $timeout){
         text: $scope.messageForm.text,
         user_uid: $scope.current_user.uid,
         user_nickname: $scope.current_user.nickname,
-        created_at: Date.getTime()
+        created_at: moment().format('MMMM Do YYYY, h:mm:ss a')
       });
       // Wyczyść input
       $scope.messageForm.text = '';
