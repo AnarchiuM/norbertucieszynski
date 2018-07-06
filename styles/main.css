@@ -1,0 +1,483 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,600,600i,700,700i,800,900');
+
+html,
+body {
+    background: #fff;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: .02em;
+    background-color: #eee;
+    height: 100%
+}
+
+html {
+    font-size: 62.5%
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    font-size: 1.39rem;
+    position: relative;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    outline: none;
+    background-repeat: no-repeat
+}
+
+a,
+button {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    background: 0 0;
+    transition: color .12s linear
+}
+
+input,
+button {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    line-height: 48px;
+    height: 48px;
+    font-size: 1.6rem
+}
+
+input {
+    border: 1px solid #eee;
+    padding: 0 15px
+}
+
+input,
+h1 {
+    margin: 0 0 1em
+}
+
+h1 {
+    font-size: 3rem
+}
+
+h2 {
+    margin: 0
+}
+
+h3 {
+    margin: 0 0 1em;
+    font-size: 1.8rem
+}
+
+@media only screen and (min-width:768px) {
+    h3 {
+        font-size: 2rem
+    }
+}
+
+p {
+    margin: 0
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 40px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .15);
+    transition: box-shadow .1s linear, background-color .15s linear
+}
+
+.btn:hover {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .1)
+}
+
+.btn-green {
+    background-color: #9055A2;
+    color: #fff
+}
+
+.btn-green:hover {
+    background-color: #011638
+}
+
+.loading {
+    position: relative
+}
+
+.loading input,
+.loading button {
+    opacity: 0;
+    transition: opacity .1s linear
+}
+
+.loading:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -10px 0 0 -10px;
+    border-radius: 50%;
+    border: 2px solid #9055A2;
+    border-top-color: rgba(124, 213, 210, .2);
+    border-left-color: rgba(124, 213, 210, .2);
+    content: '';
+    -webkit-animation: spin .5s linear infinite;
+    animation: spin .5s linear infinite
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+.chat {
+    position: relative
+}
+
+@media only screen and (min-width:1024px) {
+    .chat-view {
+        height: 100vh;
+        overflow: hidden
+    }
+}
+
+.chat-messages {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+	background: #D499B9;
+    float: left;
+    padding: 30px 15px 75px
+}
+
+@media only screen and (min-width:768px) {
+    .chat-messages {
+        padding: 40px 25px 110px
+    }
+}
+
+@media only screen and (min-width:1024px) {
+    .chat-messages {
+        overflow: scroll;
+        width: calc(100% - 300px);
+        height: calc(100% - 130px);
+        padding: 40px 40px 20px
+    }
+}
+
+.item-message {
+    position: relative;
+    margin-bottom: 1.4em
+}
+
+.item-message__text {
+    position: relative;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: .5em 1em;
+    display: inline-block;
+    min-width: 80px
+}
+
+.item-message__text:before {
+    position: absolute;
+    z-index: 0;
+    width: 20px;
+    height: 20px;
+    -webkit-transform: skewY(45deg);
+    transform: skewY(45deg);
+    background-color: #fff;
+    content: '';
+    top: 2px;
+    left: 1em
+}
+
+.item-message__text span {
+    position: relative;
+    z-index: 2;
+    line-height: 1.5em
+}
+
+@media only screen and (min-width:1024px) {
+    .item-message__text span {
+        font-size: 1.5rem
+    }
+}
+
+.item-message__user {
+    padding: 0 0 .7em;
+    font-size: 1.2rem
+}
+
+.item-message__user time {
+    color: #bbb;
+    padding: 0 0 0 .4em
+}
+
+.item-message-highlight .item-message__text {
+    background-color: #9055A2;
+    color: #fff
+}
+
+.item-message-highlight .item-message__text:before {
+    background-color: #9055A2
+}
+
+.chat-users {
+    position: relative;
+    width: 300px;
+    height: 100%;
+    float: right;
+    overflow: scroll;
+    border-left: 1px solid #eee;
+    background-color: #fff;
+    padding: 20px 40px;
+    display: none
+}
+
+@media only screen and (min-width:1024px) {
+    .chat-users {
+        display: block
+    }
+}
+
+@media only screen and (min-width:1220px) {
+    .chat-users {
+        z-index: 10
+    }
+}
+
+.chat-users__current {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    height: 80px;
+    right: 0;
+    width: 300px;
+    background-color: #fff;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 0 40px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    justify-content: center
+}
+
+.chat-users__current h2 {
+    margin: 0;
+    color: #9055A2
+}
+
+
+
+.item-user {
+    border-bottom: 1px solid #eee;
+    padding: .5em 0
+}
+
+.item-user:last-child {
+    border: none
+}
+
+.status {
+    position: relative;
+    padding-left: 12px;
+    font-size: 1.2rem;
+    color: #bbb
+}
+
+.status:before {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    content: '';
+    background-color: red
+}
+
+.status.status-on:before {
+    background-color: green
+}
+
+.chat-input {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 15px 15px 0;
+    border-top: 1px solid #eee;
+    box-shadow: 0 -3px 3px rgba(0, 0, 0, .02);
+    background: #fff;
+}
+
+@media only screen and (min-width:768px) {
+    .chat-input {
+        padding: 30px 30px 0;
+        height: 110px
+    }
+}
+
+@media only screen and (min-width:1024px) {
+    .chat-input {
+        position: absolute;
+        z-index: 1;
+        padding: 40px 40px 0;
+        height: 130px
+    }
+}
+
+@media only screen and (min-width:1220px) {
+    .chat-input {
+        padding: 40px 340px 0 40px
+    }
+}
+
+.chat-input input {
+    width: 70%;
+    float: left;
+    font-size: 1.3rem;
+	border: 2px solid #F68657
+}
+
+@media only screen and (min-width:768px) {
+    .chat-input input {
+        width: 70%;
+        font-size: 1.6rem
+    }
+}
+
+.chat-input button {
+    width: 50px;
+    float: right;
+    color: transparent;
+    text-align: left;
+    padding: 0
+}
+
+@media only screen and (min-width:768px) {
+    .chat-input button {
+        text-align: left;
+        line-height: 48px;
+        padding: 0 0 0 30px;
+        width: 150px;
+        color: #fff
+    }
+}
+
+.chat-input button:before {
+    position: absolute;
+    top: 3px;
+    right: 11px;
+    content: '►';
+    font-size: 2.6rem;
+    color: #fff
+}
+
+@media only screen and (min-width:768px) {
+    .chat-input button:before {
+        top: 0;
+        right: 30px
+    }
+}
+
+.login-form {
+    padding: 30px 0;
+    
+	background: linear-gradient(#9055A2, #D499B9, #2E294E);
+    text-align: center;
+    min-height: 100vh
+}
+
+@media only screen and (min-width:640px) {
+    .login-form {
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        height: 100vh
+    }
+}
+
+.login-form h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: rgba(0, 0, 0, .18)
+}
+
+@media only screen and (min-width:640px) {
+    .login-form h1 {
+        font-size: 4rem
+    }
+}
+
+.login-form h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 1em;
+    color: #fff
+}
+
+.login-form p {
+    margin: 1em 0 0;
+    font-weight: 600;
+    line-height: 1.4em;
+    color: #fff;
+    font-size: 1.3rem
+}
+
+.login-form__frame {
+    padding: 6em 3em;
+    margin: 1.4em auto 0;
+    width: 600px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, .05)
+}
+
+.chat-window {
+    width: 800px;
+    height: 600px;
+    background-color: #fff
+}
