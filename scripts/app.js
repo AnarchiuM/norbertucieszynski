@@ -112,6 +112,11 @@ exitEvent(onExitEvent, function(e) {
 }]);
 
 app.controller('inputCtrl', ['$scope','$timeout', function($scope, $timeout){
+    
+    var currentDate = new Date(new Date().getTime() + 24*60*60*1000);
+    var day = currentDate.getDate()
+    var month = currentDate.getMonth() + 1
+    var year = currentDate.getFullYear
   // Wysyłanie wiadomości
   $scope.sendMessage = function(){
     if( $scope.messageForm.$valid ){
@@ -120,7 +125,7 @@ app.controller('inputCtrl', ['$scope','$timeout', function($scope, $timeout){
         text: $scope.messageForm.text,
         user_uid: $scope.current_user.uid,
         user_nickname: $scope.current_user.nickname,
-        created_at: Math.floor(Date.now()/1000)
+        created_at: day + "/" + month + "/" + year
       });
       // Wyczyść input
       $scope.messageForm.text = '';
